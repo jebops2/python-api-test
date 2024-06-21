@@ -1,4 +1,3 @@
-# main.py
 from fastapi import FastAPI, HTTPException, Query
 import uvicorn
 from aws_iam_functions import list_access_keys_by_time
