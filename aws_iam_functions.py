@@ -4,7 +4,6 @@ from fastapi import HTTPException
 import boto3
 import os
 from dotenv import load_dotenv
-import pprint
 
 load_dotenv()
 
@@ -31,7 +30,6 @@ def list_access_keys_by_time(hours=None):
 
                 # 사용자별 Access Key와 기타 정보 확인
                 response = iam.list_access_keys(UserName=user_name)
-                pprint.pprint(response)
                 if 'AccessKeyMetadata' in response:
                     for access_key in response['AccessKeyMetadata']:
                         create_date = access_key['CreateDate']
@@ -64,7 +62,3 @@ def list_access_keys_by_time(hours=None):
         raise HTTPException(status_code=404, detail=f"Error retrieving access keys: {e}")
 
     return access_keys_info
-
-
-if __name__ == "__main__":
-    list_access_keys_by_time(13140)
