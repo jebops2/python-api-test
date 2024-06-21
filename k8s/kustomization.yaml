@@ -1,0 +1,8 @@
+namespace: secure-api
+commonLabels:
+  app: secure-api
+resources:
+- pdb.yaml
+- deploy.yaml
+- svc.yaml
+- hpa.yaml
